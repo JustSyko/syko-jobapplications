@@ -1,6 +1,6 @@
 # syko-jobapplications
 
-**syko-jobapplications** is a lightweight, fully customizable **job application UI system** for [FiveM](https://fivem.net/) servers using the **QBCore** framework. It allows players to apply for jobs through an interactive menu, and automatically sends the application data to your server (and optionally to Discord) for review.
+**syko-jobapplications** is a lightweight, fully customizable **job application UI system** for [FiveM](https://fivem.net/) servers using the **QBCore** framework. It allows players to apply for jobs through an interactive menu, and automatically sends the application data to a discord webhook for review.
 
 ## 🔧 Features
 
