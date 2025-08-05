@@ -33,17 +33,17 @@
    ensure syko-jobapplications
    ```
 
-4. **(Optional) Configure jobs and questions:**
-   - Open the JavaScript or config section (depending on how you’ve set it up) to define:
+4. **Configure jobs and questions:**
+   - Open the JavaScript or client section (depending on how you’ve set it up) to define:
      - Available jobs
      - Questions per job
-     - Discord webhook URL (if used)
+     - Discord webhook URL
 
 5. **Use a command, event, or proximity interaction to trigger the NUI.**
 
 ## 🖥️ How It Works
 
-- Players interact with the UI (usually via a command or interaction zone).
+- Players interact with the UI
 - They choose a job, fill out the form, and submit it.
 - The application is POSTed to the client and/or server.
 - Submissions can be sent to Discord or logged for staff review.
