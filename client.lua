@@ -1,3 +1,4 @@
+-- Job configurations with their respective questions
 local jobConfigs = {
     ["Police"] = {
         questions = {
@@ -81,7 +82,16 @@ local jobConfigs = {
     },
 }
 
+-- Open job menu with phone animation when command is used
 RegisterCommand("apply", function()
+    local playerPed = PlayerPedId()
+
+    -- Play phone animation
+    RequestAnimDict("cellphone@")
+    while not HasAnimDictLoaded("cellphone@") do Wait(10) end
+    TaskPlayAnim(playerPed, "cellphone@", "cellphone_text_in", 3.0, 3.0, -1, 50, 0, false, false, false)
+
+    -- Open NUI and show job selector
     SetNuiFocus(true, true)
     SendNUIMessage({
         action = "showJobSelector",
@@ -89,6 +99,7 @@ RegisterCommand("apply", function()
     })
 end)
 
+-- Handle job selection from NUI
 RegisterNUICallback("selectJob", function(data, cb)
     local jobName = data.job
     local config = jobConfigs[jobName]
@@ -104,17 +115,39 @@ RegisterNUICallback("selectJob", function(data, cb)
     cb("ok")
 end)
 
+-- Close NUI and stop phone animation
 RegisterNUICallback("focusOff", function(_, cb)
+    local playerPed = PlayerPedId()
+    ClearPedTasks(playerPed) -- stop animation
     SetNuiFocus(false, false)
     SendNUIMessage({ action = "hide" })
     cb("ok")
 end)
 
+-- Send completed application to server
 RegisterNUICallback("sendToDiscord", function(data, cb)
     local job = data.job
     local message = data.message or "No message."
-
     TriggerServerEvent("syko-ui:sendToDiscord", job, message)
-
     cb("ok")
+end)
+
+-- Open menu with animation from event
+RegisterNetEvent('syko-jobapplications:openMenu')
+AddEventHandler('syko-jobapplications:openMenu', function(jobs)
+    local playerPed = PlayerPedId()
+
+    RequestAnimDict("cellphone@")
+    while not HasAnimDictLoaded("cellphone@") do Wait(10) end
+    TaskPlayAnim(playerPed, "cellphone@", "cellphone_text_in", 3.0, 3.0, -1, 50, 0, false, false, false)
+
+    SetNuiFocus(true, true)
+    SendNUIMessage({ action = "showJobSelector", jobs = jobs })
+end)
+
+-- Close menu event
+RegisterNetEvent('syko-jobapplications:closeJobMenu')
+AddEventHandler('syko-jobapplications:closeJobMenu', function()
+    ClearPedTasks(PlayerPedId())
+    SetNuiFocus(false, false)
 end)

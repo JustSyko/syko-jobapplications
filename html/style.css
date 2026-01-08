@@ -1,103 +1,262 @@
-body {
+/* =========================
+   Syko Job Application UI
+   ========================= */
+
+/* Root & body setup for NUI */
+html, body {
     margin: 0;
     padding: 0;
-    background: rgba(0,0,0,0.3);
+    width: 100%;
+    height: 100%;
+    background: transparent !important;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+}
+
+/* Center menu on screen */
+body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    font-family: sans-serif;
 }
 
-#menu {
-    background: #1e1e1e;
-    padding: 40px;
-    border-radius: 15px;
-    display: grid;
-    grid-template-columns: 1fr; /* 2 columns */
-    gap: 20px;
-}
+/* =========================
+   Job Selection Menu
+   ========================= */
 
-.section {
+#job-selection {
+    width: 560px;
+    background: rgba(15, 15, 18, 0.45);
+    padding: 28px 32px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 0, 0, 0.18);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.65);
+    animation: fadeIn 0.25s ease;
     display: flex;
     flex-direction: column;
-    background: #3a3b3a;
-    padding: 20px;
-    border-radius:10px;
 }
 
-.section label {
+#job-buttons-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.job-button {
+    background: rgba(28, 28, 32, 0.85);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    border-radius: 16px;
+    padding: 18px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-align: left;
     color: #fff;
-    margin-bottom: 10px;
+    font-size: 0.95em;
+    font-weight: 600;
 }
 
-.section input {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
+.job-button:hover {
+    background: linear-gradient(135deg, #8b0000, #ff2a2a);
+    border-color: rgba(255, 42, 42, 0.9);
+    box-shadow: 0 0 16px rgba(255, 42, 42, 0.8);
+}
+
+.job-button.selected {
+    background: linear-gradient(135deg, #8b0000, #ff2a2a);
+    border-color: rgba(255, 42, 42, 1);
+    box-shadow: 0 0 20px rgba(255, 42, 42, 1);
+}
+
+/* =========================
+   Main Application Menu
+   ========================= */
+
+#menu {
+    width: 520px;
+    background: rgba(15, 15, 18, 0.45);
+    padding: 28px 32px;
+    border-radius: 18px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    border: 1px solid rgba(255, 0, 0, 0.18);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.65);
+    animation: fadeIn 0.25s ease;
 }
 
 .menu-title {
-
-    font-size: 28px;
-    letter-spacing: 1px;
-    color: #0b7000;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: #ff4d4d;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     text-transform: uppercase;
-    grid-column: 1 / -1; /* Makes it span all columns */
+}
+
+/* Question sections */
+.section {
+    display: flex;
+    flex-direction: column;
+    background: rgba(28, 28, 32, 0.85);
+    padding: 16px 18px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    transition: all 0.25s ease;
+}
+
+.section:hover {
+    background: linear-gradient(135deg, #8b0000, #ff2a2a);
+    border-color: rgba(255, 42, 42, 0.9);
+    box-shadow: 0 0 14px rgba(255, 42, 42, 0.6);
+}
+
+.section label {
+    color: #ffd6d6;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section input,
+.section textarea {
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 0, 0, 0.25);
+    background: rgba(30, 30, 35, 0.85);
+    color: #fff;
+    font-size: 0.95em;
+}
+
+.section input:focus,
+.section textarea:focus {
+    outline: none;
+    border-color: rgba(255, 42, 42, 0.9);
+    box-shadow: 0 0 10px rgba(255, 42, 42, 0.6);
+}
+
+/* Buttons */
+.submit-button,
+.close-button,
+#application-close-btn {
+    margin-top: 10px;
+    padding: 12px;
+    font-size: 0.95em;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: none;
 }
 
 .submit-button {
-    margin-top: 20px;
-    padding: 12px;
-    font-size: 16px;
-    background: #0b7000;
-    color: #000000;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    background: linear-gradient(135deg, #8b0000, #ff2a2a);
+    color: #fff;
 }
 
-.close-button {
-  margin-left: 10px;
-  padding: 12px;
-  font-size: 16px;
-  background: #888;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.submit-button:hover {
+    box-shadow: 0 0 18px rgba(255, 42, 42, 0.9);
 }
 
-.submit-button, .close-button {
-  display: inline-block;
+.close-button,
+#application-close-btn {
+    background: rgba(40, 40, 45, 0.85);
+    color: #fff;
+    border: 1px solid rgba(255, 0, 0, 0.25);
 }
+
+.close-button:hover,
+#application-close-btn:hover {
+    background: rgba(60, 60, 65, 0.95);
+    border-color: rgba(255, 42, 42, 0.6);
+}
+
+/* =========================
+   Confirmation Screen
+   ========================= */
 
 #confirmation {
-    background: #1e1e1e;
-    padding: 40px;
-    border-radius: 15px;
+    width: 420px;
+    background: rgba(15, 15, 18, 0.65);
+    padding: 30px;
+    border-radius: 18px;
     text-align: center;
+    border: 1px solid rgba(255, 0, 0, 0.25);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    animation: fadeIn 0.25s ease;
 }
 
 .confirmation-text {
-    color: #fff;
+    color: #ffd6d6;
     margin-bottom: 20px;
+    font-size: 1em;
 }
 
 #confirm-close-btn {
-    background: #0b7000;
+    background: linear-gradient(135deg, #8b0000, #ff2a2a);
     color: #fff;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 12px 20px;
+    border-radius: 12px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.2s ease;
+    font-size: 0.95em;
+    font-weight: 700;
+    transition: all 0.25s ease;
 }
 
 #confirm-close-btn:hover {
-    background: #084c00;
+    box-shadow: 0 0 16px rgba(255, 42, 42, 0.8);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive layout */
+@media (max-width: 600px) {
+    #job-buttons-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Logo styling */
+.app-logo {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto 15px auto;
+    display: block;
+    filter: drop-shadow(0 0 20px rgba(255, 42, 42, 0.8));
+}
+
+/* Navigation buttons for job menu */
+#job-close-btn,
+#job-back-btn {
+    margin-top: 12px;
+    padding: 10px 16px;
+    font-size: 0.9em;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid rgba(255, 0, 0, 0.25);
+    background: rgba(40, 40, 45, 0.85);
+    color: #fff;
+    transition: all 0.25s ease;
+}
+
+#job-close-btn:hover,
+#job-back-btn:hover {
+    background: rgba(60, 60, 65, 0.95);
+    border-color: rgba(255, 42, 42, 0.6);
 }

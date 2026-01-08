@@ -1,28 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Job Application</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Syko Job Applications</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="job-selection">
-    <h1 class="menu-title">Select a Job</h1>
-    <div id="job-buttons-container"></div>
-  </div>
 
-  <div id="menu" style="display: none;">
-    <h1 class="menu-title">Job Application</h1>
-    <div id="sections-container"></div>
-    <button id="application-close-btn">Close</button>
-  </div>
+    <!-- =========================
+         Job Selection Menu
+         ========================= -->
+    <div id="job-selection">
 
-  <div id="confirmation" style="display: none;">
-    <h1 class="menu-title">Application Submitted!</h1>
-    <p class="confirmation-text">Thank you for your application. We will review your submission shortly.</p>
-    <button id="confirm-close-btn">Close</button>
-  </div>
+        <div class="logo-container">
+            <img src="logo.png" class="app-logo">
+        </div>
 
-  <script src="script.js"></script>
+        <div class="menu-title">Job Applications</div>
+
+        <div id="job-buttons-container"></div>
+
+        <!-- Job Selection Close Button -->
+        <button id="job-close-btn" class="close-button">
+            ✖ Close
+        </button>
+    </div>
+
+    <!-- =========================
+         Application Questions Menu
+         ========================= -->
+    <div id="menu">
+
+        <div class="logo-container">
+            <img src="logo.png" class="app-logo">
+        </div>
+
+        <div class="menu-title">Application</div>
+
+        <!-- Application Back Button -->
+        <button id="job-back-btn" class="close-button">
+            ← Back
+        </button>
+
+        <div id="sections-container"></div>
+
+        <!-- Application Close Button -->
+        <button id="application-close-btn" class="close-button">
+            Close
+        </button>
+    </div>
+
+    <!-- =========================
+         Confirmation Screen
+         ========================= -->
+    <div id="confirmation">
+
+        <div class="logo-container">
+            <img src="logo.png" class="app-logo">
+        </div>
+
+        <div class="menu-title">Submitted</div>
+
+        <div class="confirmation-text">
+            Your application has been successfully submitted.
+        </div>
+
+        <button id="confirm-close-btn" class="close-button">
+            Close
+        </button>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
