@@ -22,7 +22,7 @@
 
 - QBCore Framework  
 - NUI enabled on your server  
-- Optional: Discord webhook  
+- Update Discord webhooks in the server.lua
 
 <img width="659" height="896" alt="image" src="https://github.com/user-attachments/assets/595d24e8-7f75-4841-9381-0a485712067a" />
 
