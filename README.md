@@ -1,72 +1,35 @@
-# syko-jobapplications
 
 <img width="774" height="636" alt="image" src="https://github.com/user-attachments/assets/1485ea94-7d01-4578-8daa-5a6765901bc7" />
 
-<img width="659" height="896" alt="image" src="https://github.com/user-attachments/assets/595d24e8-7f75-4841-9381-0a485712067a" />
+# Syko Job Applications
 
-<img width="613" height="899" alt="image" src="https://github.com/user-attachments/assets/f54a675a-c3e7-4857-a2bc-d1295f99b404" />
-
-
-
-**syko-jobapplications** is a lightweight, fully customizable **job application UI system** for [FiveM](https://fivem.net/) servers using the **QBCore** framework. It allows players to apply for jobs through an interactive menu, and automatically sends the application data to a discord webhook for review.
-
-## 🔧 Features
-
-- 📋 Simple, modern UI built with HTML, CSS, and JavaScript
-- ✅ Submit job applications in-game via NUI
-- 💼 Fully customizable job list and application questions
-- 📤 Supports sending submissions to Discord via webhook
-- 🎯 Job-restricted menus (only show jobs available to specific users if needed)
-- 🧠 Cleanly structured and easy to expand
-
-## 📦 Requirements
-
-- **QBCore Framework**
-- **A working NUI setup** in your server
-- Optional: A Discord webhook if you want to receive applications in a Discord channel
-
-## 🚀 Installation
-
-1. **Download or clone this repo:**
-
-   ```bash
-   git clone https://github.com/JustSyko/syko-jobapplications.git
-   ```
-
-2. **Add it to your `resources` folder.**
-
-3. **Start the resource in your `server.cfg`:**
-
-   ```cfg
-   ensure syko-jobapplications
-   ```
-
-4. **Configure jobs and questions:**
-   - Open the JavaScript or client section (depending on how you’ve set it up) to define:
-     - Available jobs
-     - Questions per job
-     - Discord webhook URL
-
-5. **Use a command, event, or proximity interaction to trigger the NUI.**
-
-## 🖥️ How It Works
-
-- Players interact with the UI
-- They choose a job, fill out the form, and submit it.
-- The application is POSTed to the client and/or server.
-- Submissions can be sent to Discord or logged for staff review.
-
-## 🧠 Customization
-
-- **Edit `index.html`, `style.css`, and `script.js`** for UI changes
-- Adjust job logic and data structure in the script to fit your server's jobs
-- Easily add job requirements or conditions in the NUI logic
-
-## 📬 Contact / Help
-
-If you run into issues, feel free to open an [issue](https://github.com/JustSyko/syko-jobapplications/issues) or fork the project.
+**Syko Job Applications** is a lightweight system for applying to jobs in-game on **QBCore** FiveM servers. Players fill out a simple form, and applications can be sent to Discord for staff review.  
 
 ---
 
-> Made with ❤️ for the FiveM community.  
-> Tested on QBCore, 2025 version.
+## Features
+
+- Easy-to-use in-game job application menu  
+- Select a job and answer questions  
+- Submissions sent to Discord  
+- Fully customizable jobs and questions  
+
+<img width="613" height="899" alt="image" src="https://github.com/user-attachments/assets/f54a675a-c3e7-4857-a2bc-d1295f99b404" />
+
+---
+
+## Requirements
+
+- QBCore Framework  
+- NUI enabled on your server  
+- Optional: Discord webhook  
+
+<img width="659" height="896" alt="image" src="https://github.com/user-attachments/assets/595d24e8-7f75-4841-9381-0a485712067a" />
+
+---
+
+## Installation
+
+1. Clone or download the resource:  
+   ```bash
+   git clone https://github.com/JustSyko/syko-jobapplications.git
