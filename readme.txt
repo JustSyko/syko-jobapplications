@@ -24,6 +24,8 @@ A simple, clean job application system for FiveM. Players can apply for jobs, an
 
 ## Configuration
 
+/apply to open the menu
+
 ### Discord Webhooks
 
 Each job can have its own Discord webhook. Open `server.lua` and edit the `webhooks` table:
